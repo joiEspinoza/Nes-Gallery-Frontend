@@ -1,0 +1,57 @@
+
+.cardImg
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+.card-img-top
+{
+    height: 80% !important;
+    width: 80% !important;
+    background-color: black !important;
+}
+
+
+@media only screen and (max-width: 1265px) 
+{
+
+    .card
+   {
+      border: none !important;
+   }
+
+   .card-body
+   {
+       display: none;
+   }
+   
+}
+
+
+@media only screen and (max-width: 767px) 
+{
+
+  
+
+   .cards__colCards
+   {
+       width: 107vw !important;
+       padding-left: 10px !important;
+   }
+
+   .cardImg
+    {
+        display: block;
+        padding-left: 15%;
+    }
+
+   .card-body
+   {
+       display: block !important;
+   }
+
+}
+
+

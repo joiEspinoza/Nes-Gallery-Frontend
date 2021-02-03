@@ -1,0 +1,18 @@
+.sideBar__base
+{
+    height: 100%;
+    background-color: brown;
+    //margin-top: 0.1rem !important;
+}
+
+
+@media only screen and (max-width: 768px) 
+{
+
+    .sideBar__base
+    {
+        margin-top: 0rem !important;
+        width: 107vw !important;
+    }
+
+}

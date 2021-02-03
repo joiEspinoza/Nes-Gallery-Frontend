@@ -1,0 +1,67 @@
+html, body
+{
+    margin: 0;
+    overflow-x: hidden;
+    width: 110%;
+    height: 100%;
+}
+
+
+h1
+{
+    margin-top: 0 !important;
+}
+
+
+.base__hRow
+{
+    height: 11vh;
+    margin-top: 0rem !important;
+    margin-bottom: 0.4rem !important;
+}
+
+
+.base__bRow
+{
+    height: auto;
+    padding: 0.1rem;
+}
+
+
+.base__fRow
+{
+    height: 25vh;
+    width: 102%;
+    position: relative;
+    bottom: 0;
+    margin-top: 0.3rem;
+}
+
+
+.base__pointer
+{
+    cursor: pointer;
+
+}
+
+.base__paddingLR0
+{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+@media only screen and (max-width: 768px) 
+{
+
+    .base__fRow
+    {
+
+        position: absolute !important;
+        margin-top: -5rem;
+        bottom: unset;
+        width: 105vw;
+
+    }
+
+}
