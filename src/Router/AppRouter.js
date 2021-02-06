@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { startLoadGames } from "../Actions/gameActions";
+import { startLoadGenders } from "../Actions/genderActions";
 import HomeScreen from "../Components/dashboard/HomeScreen";
-import Footer from "../Components/UI/Footer";
-import NavBar from "../Components/UI/NavBar";
+import LoginScreen from "../Components/dashboard/LoginScreen";
+import RegisterScreen from "../Components/dashboard/RegisterScreen";
+import Footer from "../Components/UI/layout/Footer";
+import NavBar from "../Components/UI/layout/NavBar";
 
 
 //////<<<<<------------------------------------------------``
@@ -10,6 +15,20 @@ import NavBar from "../Components/UI/NavBar";
 
 const AppRouter = () => 
 {
+
+    const dispatch = useDispatch();
+    useEffect( () => 
+    {
+       
+        dispatch( startLoadGames() );
+        dispatch( startLoadGenders() )
+
+
+    }, [ dispatch ])
+
+
+///////////////////////////************************////////////////////////
+
 
     return (
 
@@ -22,6 +41,10 @@ const AppRouter = () =>
                 <Switch>
 
                     <Route exact path="/" component={ HomeScreen } />
+
+                    <Route exact path="/login" component={ LoginScreen } />
+
+                    <Route exact path="/register" component={ RegisterScreen } />
 
                     <Redirect to="/" />
 

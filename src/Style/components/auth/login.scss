@@ -1,0 +1,57 @@
+
+.content__baseLogin
+{
+    height: 80vh;
+    width: 78.4%;
+    //margin-left: 0.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+
+}
+
+
+.content__baseRegister
+{
+    height: 90vh;
+    width: 78.4%;
+    //margin-left: 0.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content:center;
+    align-items: center; 
+
+}
+
+
+
+.login__boxLogin
+{
+    width: 20rem;
+    height: auto;
+    padding: 2rem;
+    -webkit-box-shadow: 2px -2px 0px 36px rgba(204,204,204,1);
+    -moz-box-shadow: 2px -2px 0px 36px rgba(204,204,204,1);
+    box-shadow: 2px -2px 0px 36px rgba(204,204,204,1);
+}
+
+
+.login_btnLogin
+{
+    padding: 0 !important;
+    width: 100% !important;
+
+}
+
+
+.login__linkRegister
+{
+    color: white;
+
+    &:hover
+    {
+        color: white;
+        border-bottom: 1px solid white;
+    }
+}

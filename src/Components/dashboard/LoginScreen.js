@@ -1,12 +1,12 @@
 import React from 'react';
-import Content from '../UI/games/Content';
-import SideBar from '../UI/layout/sideBar/SideBar';
+import ContentAuth from '../UI/auth/ContentAuth';
+
 
 
 //////<<<<<------------------------------------------------``
 
 
-const HomeScreen = () => 
+const LoginScreen = () => 
 {
 
     return (
@@ -18,15 +18,9 @@ const HomeScreen = () =>
 
                 <div className="row">
 
-                    <div className="col-md-2 base__paddingLR0">
+                    <div className="col-md-12 base__paddingLR0">
 
-                        <SideBar/>
-
-                    </div>
-
-                    <div className="col-md-10 base__paddingLR0">
-
-                        <Content/>
+                        <ContentAuth/>
 
                     </div>
 
@@ -45,4 +39,4 @@ const HomeScreen = () =>
 //////---------------------------------------------->>>>>
 
 
-export default HomeScreen;
+export default LoginScreen;

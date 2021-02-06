@@ -1,7 +1,9 @@
 .sideBar__base
 {
     height: 100%;
-    background-color: brown;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    background-color: $secondary;
     //margin-top: 0.1rem !important;
 }
 
@@ -12,7 +14,7 @@
     .sideBar__base
     {
         margin-top: 0rem !important;
-        width: 107vw !important;
+        width: 103vw !important;
     }
 
 }

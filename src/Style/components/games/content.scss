@@ -3,6 +3,7 @@
     height: auto;
     width: 78.4%;
     margin-left: 0.5rem;
+    padding: 2rem;
 
 }
 
@@ -12,7 +13,7 @@
 
     .content__base
     {
-        height: 100vh !important;
+        height: 100% !important;
     }
    
 }
@@ -26,6 +27,8 @@
         margin-top: 0.3rem !important;
         //width: 100%;
         width: 107vw !important;
+        padding: 2rem !important;
+        padding-right: 3.4rem !important;
     }
 
 }

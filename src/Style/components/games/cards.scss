@@ -1,0 +1,114 @@
+.cards__colCards
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+.cardGame
+{
+    width: 10rem !important;
+}
+
+
+.card-header
+{
+    color : white;
+}
+
+
+.cardImg
+{
+    display: flex;
+    justify-content: center;
+    background-color: $quaternary;
+    padding: 0.6rem;
+
+    transition: color, .5s;
+    
+    &:hover
+    {
+        background-color: $primary;
+    }
+}
+
+
+.cardImg img
+{
+    border: none;
+    //background-color: black !important;
+}
+
+
+.card-body
+{
+    padding: 0.1rem !important;
+}
+
+
+.cardRate
+{
+    width: auto;
+    height: auto;
+    padding: 0.1rem;
+    //background-color: black;
+    margin-left: 1rem;
+}
+
+
+@media only screen and (max-width: 1265px) 
+{
+
+   .card
+   {
+      border: none !important;
+   }
+
+   .card-body
+   {
+       display: none;
+   }
+   
+}
+
+
+@media only screen and (max-width: 767px) 
+{
+
+  
+
+   .cards__colCards
+   {
+       width: 107vw !important;
+       padding-left: 10px !important;
+   }
+
+   .cardGame
+    {
+        width: unset !important;
+    }
+
+   .cardImg
+    {
+        display: block;
+
+    }
+
+   .card-body
+   {
+       display: block !important;
+   }
+
+}
+
+///////////////////////////////////////////////////////////////////////////
+
+.cardGender 
+{
+    padding: 0.3rem;
+    padding-left: 1rem;
+
+}
+
+
+

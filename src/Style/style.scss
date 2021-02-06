@@ -5,16 +5,14 @@
 
 //------------------------------------------------------
 
-@import './components/navBar.scss';
+@import './components/ui/navBar.scss';
+@import './components/ui/sideBar.scss';
 
 //------------------------------------------------------
 
-@import './components/sideBar.scss';
+@import './components/games/content.scss';
+@import './components/games/cards.scss';
 
 //------------------------------------------------------
 
-@import './components/content.scss';
-
-//------------------------------------------------------
-
-@import './components/cards.scss';
+@import './components/auth/login.scss';

@@ -1,4 +1,5 @@
 import React from 'react';
+import Genders from './Genders';
 
 
 //////<<<<<------------------------------------------------``
@@ -12,7 +13,7 @@ const SideBar = () =>
 
         <div className="sideBar__base">
 
-            <h1>sidebar</h1>
+            <Genders/>
 
         </div>
 
