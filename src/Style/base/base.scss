@@ -78,6 +78,18 @@ h1
 }
 
 
+.base__btnGalleryRed
+{
+    background-color: #d14407 !important;
+    color: white;
+    -webkit-box-shadow: inset -1px 1px 0px 0.5px rgba(255,255,255,1);
+    -moz-box-shadow: inset -1px 1px 0px 0.5px rgba(255,255,255,1);
+    box-shadow: inset -1px 1px 0px 0.5px rgba(255,255,255,1);
+    font-weight: 1000;
+    height: 2.5rem;
+}
+
+
 .swal2-popup
 {
     border-radius: 0 !important;

@@ -23,6 +23,16 @@ const capitalLetter = ( string = "" ) =>
 };
 
 
+const dateFormat = ( date = '' ) =>
+{
+    let arrD = date.split( '-' );
+
+    arrD = [ arrD[2], arrD[1], arrD[0] ];
+
+    return arrD.join( '-' );
+};
+
+
 const swalMsg = ( response = {} ) =>
 {
 
@@ -87,5 +97,5 @@ const swalMsg = ( response = {} ) =>
 //////---------------------------------------------->>>>>
 
 
-export { priceFormat, capitalLetter, swalMsg };
+export { priceFormat, capitalLetter, swalMsg, dateFormat };
 

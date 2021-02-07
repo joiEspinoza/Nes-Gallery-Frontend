@@ -27,34 +27,52 @@ const swalMsg = ( response = {} ) =>
         return response.errors.userName.msg;
 
     }
-    else if( response.errors.categoryName )
+    else if( response.errors.title )
     {
 
-        return response.errors.categoryName.msg;
+        return response.errors.title.msg;
 
     }
-    else if( response.errors.categoryColor )
+    else if( response.errors.gender )
     {
 
-        return response.errors.categoryColor.msg;
+        return response.errors.gender.msg;
 
     }
-    else if( response.errors.userCreatorId )
+    else if( response.errors.realese )
     {
 
-        return response.errors.userCreatorId.msg;
+        return response.errors.realese.msg;
 
     }
-    else if( response.errors.postTitle )
+    else if( response.errors.price )
     {
 
-        return response.errors.postTitle.msg;
+        return response.errors.price.msg;
 
     }
-    else if( response.errors.postBody )
+    else if( response.errors.stock )
     {
 
-        return response.errors.postBody.msg;
+        return response.errors.stock.msg;
+
+    }
+    else if( response.errors.rate )
+    {
+
+        return response.errors.rate.msg;
+
+    }
+    else if( response.errors.url )
+    {
+
+        return response.errors.url.msg;
+
+    }
+    else if( response.errors.url2 )
+    {
+
+        return response.errors.url2.msg;
 
     };
 

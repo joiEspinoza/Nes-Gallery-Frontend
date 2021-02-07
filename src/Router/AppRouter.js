@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { startLoadGames } from "../Actions/gameActions";
 import { startLoadGenders } from "../Actions/genderActions";
+import AdminScreen from "../Components/dashboard/AdminScreen";
 import HomeScreen from "../Components/dashboard/HomeScreen";
 import LoginScreen from "../Components/dashboard/LoginScreen";
 import RegisterScreen from "../Components/dashboard/RegisterScreen";
@@ -45,6 +46,8 @@ const AppRouter = () =>
                     <Route exact path="/login" component={ LoginScreen } />
 
                     <Route exact path="/register" component={ RegisterScreen } />
+
+                    <Route exact path="/admin" component={ AdminScreen } />
 
                     <Redirect to="/" />
 

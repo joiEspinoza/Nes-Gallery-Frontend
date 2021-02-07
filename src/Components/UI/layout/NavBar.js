@@ -22,7 +22,14 @@ const NavBar = () =>
     {
         history.push( '/' );
     };
-    
+
+
+    const handleRedirectAdmin = () =>
+    {
+        history.push( '/admin' );
+    };
+
+   
 
 ///////////////////////////************************////////////////////////
 
@@ -45,8 +52,9 @@ const NavBar = () =>
 
                 <span className="navBar__login">
 
+
                    { 
-                        location.pathname === '/' && !logged ?
+                        ( location.pathname === '/'  && !logged ) ?
 
                         
                         <table>
@@ -61,21 +69,31 @@ const NavBar = () =>
 
                         :
 
+                        <div></div>
+
+                    }
+
+
+                    {
+                        ( ( location.pathname === '/' || location.pathname === '/admin' )  && logged ) ?
                         <table>
+
                             <tbody>
                                 <tr>
                                     
-                                    <td><button disabled={ true } className="btn btn-outline-secondary navBar__btnLogin base__btnGallery" type="button">{ name }</button></td>
+                                    <td><button onClick={ handleRedirectAdmin } className="btn btn-outline-secondary navBar__btnLogin base__btnGallery" type="button">{ name }</button></td>
                                     <td ><span className="navBar__squareLogin" style={ { color : '#d14407' } }><i className="fas fa-square-full"></i></span></td>
                                 </tr>
                             </tbody>
-                        </table>
 
+                        </table>
+                        :
+                        <div></div>
                     }
 
 
                     {   
-                        location.pathname === '/login'  &&
+                        ( location.pathname === '/login' )  &&
                         <table>
                             <tbody>
                                 <tr>    
@@ -87,7 +105,7 @@ const NavBar = () =>
 
 
                     {   
-                        location.pathname === '/register'  &&
+                        ( location.pathname === '/register' )  &&
                         <table>
                             <tbody>
                                 <tr>    
@@ -96,7 +114,8 @@ const NavBar = () =>
                             </tbody>
                         </table>
                     }
-                     
+
+
                 </span>
 
             </div>
