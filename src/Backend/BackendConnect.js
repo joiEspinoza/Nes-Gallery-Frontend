@@ -9,7 +9,6 @@ const BackendConnect = ( endpoint, data = {}, method = "GET" ) =>
 
     const url = `${ baseUrl }/${ endpoint }`;
 
-    //console.log( url );
 
     if( method === "GET" )
     {

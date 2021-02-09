@@ -1,11 +1,11 @@
 import React from 'react';
-import ContentAdmin from '../UI/admin/ContentAdmin';
+import ContentGame from '../UI/game/ContentGame';
 
 
 //////<<<<<------------------------------------------------``
 
 
-const adminScreen = () => 
+const GameScreen = () => 
 {
 
     return (
@@ -19,22 +19,21 @@ const adminScreen = () =>
 
                     <div className="col-md-12 base__paddingLR0">
 
-                        <ContentAdmin/>
+                      <ContentGame/>
 
                     </div>
 
                 </div>
 
             </div>
-        
+    
         </div>
 
     );
-
 };
 
 
 //////---------------------------------------------->>>>>
 
 
-export default adminScreen;
+export default GameScreen;

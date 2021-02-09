@@ -1,16 +1,26 @@
 .navBar__logo
 {
     width: 10rem;
-    margin-left: 4.2rem;
+    margin-left: 2.5rem;
 }
 
-.navBar__colNabVar
+
+
+.navBar__col1
 {
-    width: 32vw;
-    height: 12vh;
-    display: flex;
-    align-items: center;
-    //justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+
+.navBar__col3
+{
+    height: 100%;
+    width: 100%;
+    padding-top: 1.3rem;
+    padding-left: 45%;
+    
 }
 
 

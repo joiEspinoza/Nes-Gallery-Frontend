@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
+import { logout } from '../../../Actions/authActions';
 
 
 //////<<<<<------------------------------------------------``
@@ -16,7 +17,7 @@ const NavBar = () =>
     const handleRedirectLogin = () =>
     {
         history.push( '/login' );
-    }
+    };
 
     const handleRedirectHome = () =>
     {
@@ -29,6 +30,13 @@ const NavBar = () =>
         history.push( '/admin' );
     };
 
+
+    const dispatch = useDispatch();
+    const handleLogout = () =>
+    {
+        dispatch( logout() );
+    };
+
    
 
 ///////////////////////////************************////////////////////////
@@ -39,19 +47,26 @@ const NavBar = () =>
         
         <div className="row base__hRow">
 
-            <div className="col-md-4 bg-primary navBar__colNabVar" >
+            <div className="col-md-4 bg-primary">
 
-                <img className="navBar__logo img-fluid" alt="NGLogo" src="https://res.cloudinary.com/djlmqpd2n/image/upload/v1612281203/Nes%20Gallery/UI/ngLogo_gvijbr.png" />
+                <div className="navBar__col1">
+
+                    <img className="navBar__logo img-fluid" alt="NGLogo" src="https://res.cloudinary.com/djlmqpd2n/image/upload/v1612281203/Nes%20Gallery/UI/ngLogo_gvijbr.png" />
+
+                </div>
+                
+            </div>
+
+            <div className="col-md-4 bg-primary">
+
+                <div className="navBar__col2">
+                </div>
 
             </div>
 
-            <div className="col-md-4 bg-primary navBar__colNabVar" >
-            </div>
+            <div className="col-md-4 bg-primary" >
 
-            <div className="col-md-4 bg-primary navBar__colNabVar" >
-
-                <span className="navBar__login">
-
+                <div className="navBar__col3">
 
                    { 
                         ( location.pathname === '/'  && !logged ) ?
@@ -75,7 +90,7 @@ const NavBar = () =>
 
 
                     {
-                        ( ( location.pathname === '/' || location.pathname === '/admin' )  && logged ) ?
+                        ( location.pathname === '/' && logged ) ?
                         <table>
 
                             <tbody>
@@ -92,31 +107,36 @@ const NavBar = () =>
                     }
 
 
+                    {
+                        ( location.pathname === '/admin' ) ?
+                        <table>
+
+                            <tbody>
+                                <tr>
+                                    
+                                    <td><button onClick={ handleLogout } className="btn btn-outline-secondary navBar__btnLogin base__btnGallery" type="button">Logout</button></td>
+                                    <td ><span className="navBar__squareLogin" style={ { color : '#d14407' } }><i className="fas fa-square-full"></i></span></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        :
+                        <div></div>
+                    }
+
+
                     {   
-                        ( location.pathname === '/login' )  &&
+                        ( location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/game'  )  &&
                         <table>
                             <tbody>
                                 <tr>    
-                                    <td><button onClick={ handleRedirectHome } className="btn btn-outline-secondary navBar__btnLogin base__btnGallery" type="button">Back</button></td>
+                                    <td><button onClick={ handleRedirectHome } className="btn btn-outline-secondary navBar__btnLogin base__btnGallery" type="button"><i className="fas fa-backward"></i></button></td>
                                 </tr>
                             </tbody>
                         </table>
                     }
 
-
-                    {   
-                        ( location.pathname === '/register' )  &&
-                        <table>
-                            <tbody>
-                                <tr>    
-                                    <td><button onClick={ handleRedirectHome } className="btn btn-outline-secondary navBar__btnLogin base__btnGallery" type="button">Back</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    }
-
-
-                </span>
+                </div>
 
             </div>
 

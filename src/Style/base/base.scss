@@ -2,8 +2,8 @@ html, body
 {
     margin: 0;
     overflow-x: hidden;
-    width: 110%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
 }
 
@@ -17,8 +17,7 @@ h1
 .base__hRow
 {
     height: 11vh;
-    margin-top: 0rem !important;
-
+    
 }
 
 
@@ -63,6 +62,7 @@ h1
     font-weight: 1000;
     text-transform: capitalize !important;
     height: 2.5rem;
+    border: 1px solid white !important;
 
     transition: color, .5s;
 
@@ -103,6 +103,35 @@ h1
 
 
 .swal2-confirm
+{
+    width: 6rem;
+    background-color: #666666 !important;
+    color: white;
+    -webkit-box-shadow: inset -1px -1px 3px 1px rgba(0,0,0,1);
+    -moz-box-shadow: inset -1px -1px 3px 1px rgba(0,0,0,1);
+    box-shadow: inset -1px -1px 3px 1px rgba(0,0,0,1);
+    font-weight: 1000;
+    text-transform: capitalize !important;
+    height: 2.5rem;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid white !important;
+
+    transition: color, .5s;
+
+    &:hover
+    {
+        background-color: #d14407 !important;
+        color: white;
+        -webkit-box-shadow: inset -1px 1px 0px 0.5px rgba(255,255,255,1);
+        -moz-box-shadow: inset -1px 1px 0px 0.5px rgba(255,255,255,1);
+        box-shadow: inset -1px 1px 0px 0.5px rgba(255,255,255,1);
+        font-weight: 1000;
+    }
+}
+
+
+.swal2-cancel
 {
     width: 6rem;
     background-color: #666666 !important;

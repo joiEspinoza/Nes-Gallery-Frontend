@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { startLogin } from '../../../Actions/authActions';
 import { useForm } from '../../../Hook/useForm';
 
@@ -23,8 +23,6 @@ const BoxLogin = () =>
 
 
     const dispatch = useDispatch();
-    const history = useHistory();
-    const { logged } = useSelector( state => state.auth );
     const handleLogin = ( event ) =>
     {
         
@@ -32,13 +30,8 @@ const BoxLogin = () =>
 
         formValues.email = formValues.email.replace( /[" "]/g, "" ).trim();
 
-        dispatch( startLogin( formValues ) )
+        dispatch( startLogin( formValues ) );
 
-        if( logged )
-        {
-            history.push( '/' );
-        };
-        
     };
 
 ///////////////////////////************************////////////////////////

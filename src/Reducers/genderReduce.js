@@ -19,8 +19,6 @@ const genderReducer = ( state = initState, action ) =>
     
         case types.loadGenders : return { ...state, genders : action.payload };
 
-        case types.clearStates : return initState;
-        
         default: return state;
             
     };

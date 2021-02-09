@@ -87,6 +87,12 @@ const startAddGame = ( game ) =>
 };
 
 
+const setActiveGame = ( game ) => ( { type : types.setActiveGame, payload : game } )
+
+
+const clearActiveGame = () => ( { type : types.clearActiveGame } );
+
 //////---------------------------------------------->>>>>
 
-export { startLoadGames, startAddGame }
+
+export { startLoadGames, startAddGame, setActiveGame, clearActiveGame };

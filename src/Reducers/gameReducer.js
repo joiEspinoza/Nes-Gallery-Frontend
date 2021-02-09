@@ -20,8 +20,10 @@ const gameReducer = ( state = initState, action ) =>
     
         case types.loadGames : return { ...state, games : action.payload };
 
-        case types.clearStates : return initState;
-        
+        case types.setActiveGame : return { ...state, activeGame : action.payload };
+
+        case types.clearActiveGame : return { ...state, activeGame : [] };
+
         default: return state;
             
     };

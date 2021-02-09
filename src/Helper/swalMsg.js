@@ -74,11 +74,41 @@ const swalMsg = ( response = {} ) =>
 
         return response.errors.url2.msg;
 
-    };
+    }
+    else if( response.errors.descr )
+    {
+
+        return response.errors.descr.msg;
+
+    }; 
 
 };
 
 
+const swalMsg2 = ( response = {} ) =>
+{
+
+    if( !response.errors )
+    {
+
+        return response.msg;
+
+    }
+    else if( response.errors.oldPassword )
+    {
+
+        return response.errors.oldPassword.msg;
+
+    }
+    else if( response.errors.newPassword )
+    {
+
+        return response.errors.newPassword.msg;
+
+    };
+
+};
+
 //////---------------------------------------------->>>>>
 
-export { swalMsg };
+export { swalMsg, swalMsg2 };

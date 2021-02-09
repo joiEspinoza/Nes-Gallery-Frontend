@@ -1,0 +1,91 @@
+.content__baseGame
+{
+    
+    height: auto;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.gameCover img
+{
+    width: 90% !important;
+    background-color: black;
+}
+
+.gameBoxBtnBuy
+{
+    background-color: black;
+    padding: 1rem;
+    position: absolute; 
+    left: 4.5%; 
+    top: 84.3%; 
+    z-index: 3;
+    width: 82%;
+    padding-left: 27%;
+
+}
+
+.gameBtnBuy
+{
+    width: 6rem;
+}
+
+
+.inputGame
+{
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.gameBoxScreenShoot
+{
+    width: 102%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.gameScreenShoot
+{
+
+    width: 50%;
+    -webkit-box-shadow: inset -2px 1px 0px 17px rgba(0,0,0,1);
+    -moz-box-shadow: inset -2px 1px 0px 17px rgba(0,0,0,1);
+    box-shadow: inset -2px 1px 0px 17px rgba(0,0,0,1);
+    border: none;
+    padding: 1rem;
+
+}   
+
+
+.rateGame
+{
+    font-size: 2rem !important;
+    color: black;
+}
+
+
+.gameActionsBox
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btnActions
+{
+    width: 40%;
+    margin-left: 1rem;
+}

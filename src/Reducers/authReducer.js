@@ -21,7 +21,7 @@ const authReducer = ( state = initState, action ) =>
     
         case types.login : return { ...state, logged : true ,...action.payload };
 
-        case types.clearStates : return initState;
+        case types.clearUser : return initState;
         
         default: return state;
             
