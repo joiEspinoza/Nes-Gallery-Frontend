@@ -43,10 +43,29 @@ const NavBar = () =>
     const handleLoadAll = () =>
     {
 
+        const initBtns = document.querySelectorAll( '.sideBar_btn' );
+
+        if( initBtns )
+        {
+            const initBtnsArray = Array.from( initBtns );
+    
+            initBtnsArray.forEach( ( btn ) => 
+            {
+    
+                if( btn.className.includes( 'base__btnGalleryRed' ) )
+                {
+                    btn.classList.remove( 'base__btnGalleryRed' );
+                    btn.classList.add( 'base__btnGaller' );
+                };
+    
+            });
+                             
+        };
+
         history.push( '/' );
 
         dispatch( startLoadGames() );
-        
+
     };
 
 
@@ -56,28 +75,24 @@ const NavBar = () =>
         const search = document.getElementById( 'search' ).value;
        
         dispatch( startLoadGamesByTitle( capitalLetter( search ) ) );
+        
     };
+
 
     const handleSearchEnter = ( event ) =>
     {   
         
         if( event.keyCode === 13 )
         {
-            if( document.getElementById( 'search' ).value === '' )
-            {
-                return;
-            }
-            else
-            {
-                const search = document.getElementById( 'search' ).value;
-                dispatch( startLoadGamesByTitle( capitalLetter( search ) ) );
-            };
+            document.getElementById( 'btnSearch' ).click();
         };
 
     };
-
-
-    window.onkeydown = handleSearchEnter;
+    if( location.pathname === '/' || location.pathname === '/game' )
+    {
+        window.onkeydown = handleSearchEnter;
+    };
+    
 
     
 ///////////////////////////************************////////////////////////

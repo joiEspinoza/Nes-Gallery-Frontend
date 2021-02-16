@@ -18,8 +18,26 @@ const Footer = () =>
 
             </div>
 
-            <div className="col-xl-4 colf2">
+            <div className="col-xl-4 colf2 base__flexCenter">
 
+                <div className="boxTextFooter">
+
+                    <p><b>Applied technologies</b></p>
+
+                    <p>
+                    |	React Js ( Hooks )
+                    -	React Router
+                    -	Redux
+                    -	Cloudinary
+                    -	Bootstrap
+                    -	Sass
+                    -	Node Js
+                    -	Express Js
+                    -	Mongo DB
+                    |
+                    </p>
+
+                </div>
 
             </div>
 

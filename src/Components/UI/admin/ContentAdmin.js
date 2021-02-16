@@ -239,6 +239,29 @@ const ContentAdmin = () =>
     };
 
 
+    const handleToggleType = ( event ) =>
+    {   
+        event.preventDefault();
+
+        const pass1 = document.getElementById( 'pass1' );
+        const pass2 = document.getElementById( 'pass2' );
+        const pass3 = document.getElementById( 'pass3' );
+
+        if( pass1.type === "password" && pass2.type === "password" && pass3.type === "password" ) 
+        {
+            pass1.type = "text";
+            pass2.type = "text";
+            pass3.type = "text";
+        }
+        else 
+        {
+            pass1.type = "password";
+            pass2.type = "password";
+            pass3.type = "password";
+        };
+
+    };
+
 ///////////////////////////************************////////////////////////
 
 
@@ -411,20 +434,21 @@ const ContentAdmin = () =>
 
                                         <div className="form-group">
                                             <label><small>Current password</small></label>
-                                            <input type="password" className="form-control" name="oldPassword" value={ oldPassword } onChange={ handleInputChange } />
+                                            <input id="pass1" type="password" className="form-control" name="oldPassword" value={ oldPassword } onChange={ handleInputChange } />
                                         </div>
 
                                         <div className="form-group">
                                             <label><small>New password</small></label>
-                                            <input type="password" className="form-control" name="newPassword" value={ newPassword } onChange={ handleInputChange }/>
+                                            <input id="pass2" type="password" className="form-control" name="newPassword" value={ newPassword } onChange={ handleInputChange }/>
                                         </div>
 
                                         <div className="form-group">
                                             <label><small>Confirm new password</small></label>
-                                            <input type="password" className="form-control" name="newPassword2" value={ newPassword2 } onChange={ handleInputChange }/>
+                                            <input id="pass3" type="password" className="form-control" name="newPassword2" value={ newPassword2 } onChange={ handleInputChange }/>
                                         </div>
 
                                         <div className="form-group mt-5">
+                                            <button onClick={ handleToggleType } className="base__btnGallery btn-block"><i className="far fa-eye"></i></button>
                                             <button id="btn5" className="base__btnGallery btn-block">Update Password</button>
                                             <button id="btn6" hidden disabled className="base__btnGalleryRed btn-block"><i className="fas fa-circle-notch fa-spin"></i></button>
                                         </div>

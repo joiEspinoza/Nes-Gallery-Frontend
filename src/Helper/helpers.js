@@ -47,6 +47,10 @@ const lockUpdate = () =>
     document.getElementById( 'bUpdate3' ).setAttribute( 'hidden', true );
     document.getElementById( 'bUpdate2' ).setAttribute( 'hidden', true );
     document.getElementById( 'bUpdate' ).removeAttribute( 'hidden' );
+
+    document.getElementById( 'btnSearch' ).removeAttribute( 'disabled' );
+    document.getElementById( 'search' ).removeAttribute( 'disabled' );
+    
 };
 
 

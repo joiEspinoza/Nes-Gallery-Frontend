@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLoadGamesByGender } from '../../../../Actions/gameActions';
 
@@ -11,12 +11,47 @@ const Genders = () =>
 
     const { genders } = useSelector( state => state.gender );
 
+   
     const dispatch = useDispatch();
     const handleFilterByGender = ( gender ) =>
     {
         dispatch( startLoadGamesByGender( gender ) );
     };
 
+    useEffect( () => 
+    {
+
+        const btns = document.querySelectorAll( '.sideBar_btn' );
+        const btnsArray = Array.from( btns );
+
+        btnsArray.forEach( ( btn ) => 
+        {
+
+            btn.addEventListener( 'click', () => 
+            {
+
+                btnsArray.forEach( ( btn ) => 
+                {
+
+                    if( btn.className.includes( 'base__btnGalleryRed' ) )
+                    {
+                        btn.classList.remove( 'base__btnGalleryRed' );
+                        btn.classList.add( 'base__btnGaller' );
+                    };
+
+                });
+
+
+                btn.classList.add( 'base__btnGalleryRed' );
+                btn.classList.remove( 'base__btnGaller' );
+
+            });
+                         
+        });
+
+
+    }, [] )
+    
 
 ///////////////////////////************************////////////////////////
 

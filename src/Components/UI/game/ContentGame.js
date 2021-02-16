@@ -18,19 +18,24 @@ const ContentGame = () =>
     const { name } = useSelector( state => state.auth );
     const dispatch = useDispatch();
 
-    
-    const initFormValues = 
+
+    let initFormValues;
+    activeGame.map( ( game ) => 
     {
 
-        _id : activeGame[0]._id,
-        gender : activeGame[0].gender,
-        release : '',
-        rate : activeGame[0].rate,
-        url : activeGame[0].url,
-        url2 : activeGame[0].url2,
+        return initFormValues = 
+        {
 
-    };
+            _id : game._id,
+            gender : game.gender,
+            release : game.release,
+            rate : game.rate,
+            url : game.url,
+            url2 : game.url2,
 
+        };
+    });
+   
 
     const [ formValues, handleInputChange ] = useForm( initFormValues );
 
@@ -52,6 +57,10 @@ const ContentGame = () =>
         document.getElementById( 'bUpdate' ).setAttribute( 'hidden', true );
         document.getElementById( 'bUpdate2' ).removeAttribute( 'hidden' );
         document.getElementById( 'bUpdate3' ).removeAttribute( 'hidden' );
+
+        document.getElementById( 'btnSearch' ).setAttribute( 'disabled', true );
+        document.getElementById( 'search' ).setAttribute( 'disabled', true );
+
 
     };
 

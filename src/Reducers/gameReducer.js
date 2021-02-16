@@ -9,7 +9,7 @@ const initState =
 {
     games : [],
     spliceGames : [],
-    activeGame : []
+    activeGame : {}
 };
 
 

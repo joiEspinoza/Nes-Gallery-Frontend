@@ -16,7 +16,7 @@ const startLoadGames = () =>
 
         try 
         {
-            const request = await BackendConnect( 'game/getGames', {}, 'GET' );
+            const request = await BackendConnect( 'game/getgames', {}, 'GET' );
 
             const response = await request.json();
 
@@ -48,7 +48,7 @@ const startLoadGamesByGender = ( gender ) =>
         try 
         {
 
-            const request = await BackendConnect( 'game/getGamesByGender', { gender }, 'POST' );
+            const request = await BackendConnect( 'game/getgamesbygender', { gender }, 'POST' );
 
             const response = await request.json();
 
@@ -79,7 +79,7 @@ const startLoadGamesByTitle = ( search ) =>
         try 
         {
 
-            const request = await BackendConnect( 'game/getGamesByTitle', { search }, 'POST' );
+            const request = await BackendConnect( 'game/getgamesbytitle', { search }, 'POST' );
 
             const response = await request.json();
 
@@ -122,7 +122,7 @@ const startAddGame = ( game ) =>
 
             game.url2 = await fileUploadCloudinary( game.url2, game.title );
 
-            const request = await BackendConnect( 'game/newGame', game, 'POST' );
+            const request = await BackendConnect( 'game/newgame', game, 'POST' );
 
             const response = await request.json();
 
@@ -161,7 +161,7 @@ const startUpdateGame = ( game ) =>
         try 
         {
 
-            const request = await BackendConnect( 'game/updateGame', game, 'PUT' );
+            const request = await BackendConnect( 'game/updategame', game, 'PUT' );
 
             const response = await request.json();
 
@@ -174,26 +174,7 @@ const startUpdateGame = ( game ) =>
 
                 dispatch( setActiveGame( [ game ] ) );
 
-
-                return Swal.fire
-                (
-                    {
-                        title : '',
-                        text: `${ response.msg }`,
-                        icon : 'success',
-                        confirmButtonText: `Ok`,
-
-                    })
-                    .then( ( result ) => 
-                    {
-
-                        if( result.isConfirmed ) 
-                        {
-                            window.location.reload();
-                        };
-
-                    }
-                );
+                return Swal.fire( '', response.msg, 'success' );
 
             }
             else
@@ -219,7 +200,7 @@ const startDeleteGame = ( _id ) =>
         try 
         {
 
-            const request = await BackendConnect( 'game/deleteGame', { _id }, 'DELETE' );
+            const request = await BackendConnect( 'game/deletegame', { _id }, 'DELETE' );
 
             const response = await request.json();
 
