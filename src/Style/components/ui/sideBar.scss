@@ -5,6 +5,18 @@
     padding-left: 1.5rem;
     background-color: $secondary;
     margin-top: -0.1rem !important;
+    padding-bottom: 2rem;
+    margin-top: -0.1rem !important;
+
+
+}
+
+
+.sideBar_btn
+{
+    margin-top: 0.5rem;
+    padding: 0 !important;
+    padding-top: 0.5rem !important;
 
 }
 
@@ -14,8 +26,10 @@
 
     .sideBar__base
     {
-        margin-top: 0rem !important;
-        width: 103vw !important;
+        
+        width: 100% !important;
+        padding-right: 2rem !important;
     }
 
 }
+

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { setActiveGame } from '../../../Actions/gameActions';
-import { priceFormat } from '../../../Helper/helpers';
+import { setActiveGame, setSpliceGames } from '../../../Actions/gameActions';
+import Pagination from './Pagination';
 import Rate from './Rate';
 
 
@@ -12,10 +12,19 @@ import Rate from './Rate';
 const Games = () => 
 {
 
-    const { games } = useSelector( state => state.game );
+    const { games, spliceGames } = useSelector( state => state.game );
+
+
+    const dispatch = useDispatch();
+    useEffect( () => 
+    {
+        const initCopyGames = [ ...games ];
+        dispatch( setSpliceGames( initCopyGames.splice( 0, 12 ) ) );
+
+    }, [ dispatch, games ] );
+
 
     const history = useHistory();
-    const dispatch = useDispatch();
     const handleRedirectGame = ( _id ) =>
     {
 
@@ -27,54 +36,73 @@ const Games = () =>
 
     };
 
-
+ 
 
 ///////////////////////////************************////////////////////////
 
 
     return (
 
+        <>
 
-        <div className="row">
-
-            {
-                games.map( ( game ) => 
+            <div className="row">
+                
                 {
+                    spliceGames &&
+                    
+                    spliceGames.map( ( game ) => 
+                    {
 
-                    return <div className="col-12 col-md-4 col-lg-3 mb-5 cards__colCards" key={ game._id }>
-                        
-                        <div className="card cardGame">
-
-                            <div className="card-header bg-primary">
-
-                              <Rate rate={ game.rate } />
-
-                            </div>
-
-                            <div className="cardImg">
-                               <img onClick={ () => { handleRedirectGame( game._id ) } } src={ game.url } className="img-thumbnail img-fluid base__pointer" alt={ game.title }/>
-                            </div>
+                        return <div className="col-12 col-md-4 col-lg-3 mb-5 cards__colCards" key={ game._id }>
                             
-                            <div className="card-body">
+                            <div className="card cardGame animate__animated animate__flipInY">
 
-                                <ul className="list-group list-group-flush text-center">
+                                <div className="card-header bg-primary">
 
-                                    <li className="list-group-item">{ `$ ${ priceFormat( game.price ) }` }</li>
-                                    <li className="list-group-item"><small className="text-muted">{ `stock : ${game.stock}` }</small></li>
+                                    <Rate rate={ game.rate } />
 
-                                </ul>
+                                </div>
+
+                                <div className="cardImg">
+
+                                    <img onClick={ () => { handleRedirectGame( game._id ) } } src={ game.url } className="img-thumbnail img-fluid base__pointer" alt={ game.title }/>
+                                
+                                </div>
+                                
+                                <div className="card-body">
+
+                                    <ul className="list-group list-group-flush text-center">
+
+                                        <li className="list-group-item cardRelease"><small>{ game.release }</small></li>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
 
                         </div>
 
-                    </div>
+                        
 
-                })
-            }
+                    })
+                }
+
+            </div>
             
-        </div>
+            <div className="row pagination">
 
+                <div className="col-md-12">
+
+                   
+                   <Pagination games={ games } />
+             
+
+                </div>
+
+            </div>
+        
+        </>
     );
 
 };

@@ -3,18 +3,8 @@
     height: auto;
     width: 100%;
     padding: 2rem;
+    margin-top: 0 !important;
 
-}
-
-
-@media only screen and (max-width: 1265px) 
-{
-
-    .content__base
-    {
-        height: 100% !important;
-    }
-   
 }
 
 
@@ -28,6 +18,17 @@
         width: 107vw !important;
         padding: 2rem !important;
         padding-right: 3.4rem !important;
+    }
+
+}
+
+
+@media only screen and (max-width: 415px) 
+{
+
+    .content__base
+    {
+        padding-right: 1.8rem !important;
     }
 
 }

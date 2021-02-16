@@ -33,6 +33,23 @@ const dateFormat = ( date = '' ) =>
 };
 
 
+const lockUpdate = () =>
+{
+    document.getElementById( 'iGender' ).setAttribute( 'disabled', true );
+
+    document.getElementById( 'iRelease2' ).setAttribute( 'hidden', true );
+    document.getElementById( 'iRelease' ).removeAttribute( 'hidden' );
+    document.getElementById( 'iRelease3' ).setAttribute( 'hidden', true );
+
+    document.getElementById( 'iRate2' ).setAttribute( 'hidden', true );
+    document.getElementById( 'iRate' ).removeAttribute( 'hidden' );
+
+    document.getElementById( 'bUpdate3' ).setAttribute( 'hidden', true );
+    document.getElementById( 'bUpdate2' ).setAttribute( 'hidden', true );
+    document.getElementById( 'bUpdate' ).removeAttribute( 'hidden' );
+};
+
+
 const swalMsg = ( response = {} ) =>
 {
 
@@ -97,5 +114,5 @@ const swalMsg = ( response = {} ) =>
 //////---------------------------------------------->>>>>
 
 
-export { priceFormat, capitalLetter, swalMsg, dateFormat };
+export { priceFormat, capitalLetter, lockUpdate, swalMsg, dateFormat };
 

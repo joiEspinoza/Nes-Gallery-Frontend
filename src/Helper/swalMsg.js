@@ -105,6 +105,12 @@ const swalMsg2 = ( response = {} ) =>
 
         return response.errors.newPassword.msg;
 
+    }
+    else if( response.errors.search )
+    {
+
+        return response.errors.search.msg;
+
     };
 
 };

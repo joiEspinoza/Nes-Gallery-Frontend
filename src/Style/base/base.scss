@@ -14,9 +14,17 @@ h1
 }
 
 
+.base__flexCenter
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .base__hRow
 {
-    height: 11vh;
+    height: 12vh !important;
     
 }
 
@@ -30,7 +38,7 @@ h1
 
 .base__fRow
 {
-    height: 25vh;
+    height: 27vh;
     width: 102%;
     position: relative;
     bottom: 0;
@@ -48,6 +56,14 @@ h1
 {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+
+.base__flexCenter
+{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 
@@ -166,10 +182,22 @@ h1
     .base__fRow
     {
 
-        //position: absolute !important;
-        //margin-top: -5rem;
         bottom: unset;
         width: 105vw;
+        height: 30vh;
+
+    }
+
+}
+
+
+@media only screen and (max-width: 1199px) 
+{
+
+    .base__hRow
+    {
+
+        height: unset !important;
 
     }
 

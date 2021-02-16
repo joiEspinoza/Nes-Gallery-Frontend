@@ -29,7 +29,7 @@ const startLoadGenders = () =>
         catch( error ) 
         {
             console.log( error );
-            return Swal.fire( '', 'Something went wrong', 'error' );  
+            return Swal.fire( '', 'Please contact the administrator', 'error' );  
         };
 
     };
@@ -55,6 +55,7 @@ const startAddGender = ( descr ) =>
            if( response.ok )
            {
                 Swal.fire( '', response.msg, 'success' );
+                
                 dispatch( startLoadGenders() );
            }
            else
@@ -66,7 +67,7 @@ const startAddGender = ( descr ) =>
         catch( error ) 
         {
             console.log( error );
-            return Swal.fire( '', 'Something went wrong', 'error' );  
+            return Swal.fire( '', 'Please contact the administrator', 'error' );  
         };
         
     };
@@ -75,6 +76,7 @@ const startAddGender = ( descr ) =>
 
 const startDeleteGender = ( _id ) =>
 {
+
     return async ( dispatch ) =>
     {
         try
@@ -85,15 +87,18 @@ const startDeleteGender = ( _id ) =>
 
             if( response.ok )
             {
+
                 dispatch( startLoadGenders() );
+
                 Swal.fire( '', response.msg, 'success' );
+
             };
 
         }
         catch( error ) 
         {
             console.log( error );
-            return Swal.fire( '', 'Something went wrong', 'error' );  
+            return Swal.fire( '', 'Please contact the administrator', 'error' );  
         };
     };
 }; 

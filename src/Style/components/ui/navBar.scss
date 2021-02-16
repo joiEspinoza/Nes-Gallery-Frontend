@@ -1,7 +1,8 @@
 .navBar__logo
 {
     width: 10rem;
-    margin-left: 2.5rem;
+    //margin-left: 3.5rem;
+    margin-left: 45px;
 }
 
 
@@ -10,7 +11,16 @@
 {
     height: 100%;
     width: 100%;
-    padding-top: 2rem;
+    padding-top: 2.4rem;
+}
+
+
+.navBar__col2
+{
+    height: 100%;
+    width: 100%;
+    padding-top: 1.5rem;
+    
 }
 
 
@@ -18,9 +28,22 @@
 {
     height: 100%;
     width: 100%;
-    padding-top: 1.3rem;
+    padding-top: 1.9rem;
     padding-left: 45%;
     
+}
+
+
+.inputSearch
+{
+    height: 3.1rem;
+}
+
+
+.btnSearch
+{
+
+   height: auto;
 }
 
 
@@ -37,5 +60,70 @@
     padding: 0 !important;
     width: 8rem;
     margin-left: 30%;
+
+}
+
+
+@media only screen and (max-width: 1199px) 
+{
+
+    .navBar__col2
+    {
+
+        padding: 2rem !important;
+        
+    }
+
+}
+
+
+@media only screen and (max-width: 1199px) 
+{
+
+    .navBar__col1
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .navBar__col3
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .navBar__logo
+    {
+        margin-left: unset !important;
+    }
+
+
+    .navBar__col3
+    {
+
+        padding: 2rem !important;
+        
+    }
+
+    .navBar__squareLogin
+    {
+        margin-left: 1rem !important;
+    }
+
+    .navBar__btnLogin 
+    {
+        margin-left: unset !important;
+    }
+
+
+    .navBar__logo
+    {
+        width: 10rem;
+        margin-left: 3.5rem;
+    }
 
 }

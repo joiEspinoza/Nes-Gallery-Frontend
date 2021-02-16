@@ -32,7 +32,7 @@ const startLogin = ( userData ) =>
         } 
         catch( error ) 
         {
-            return Swal.fire( '', 'Please contact to the administrtaitor' , 'error' );
+            return Swal.fire( '', 'Please contact the administrator' , 'error' );
         };
 
     };
@@ -56,7 +56,7 @@ const startRegister = ( userData ) =>
 
             if( response.ok )
             {
-                return Swal.fire( '', 'User created succefully' ,'success' );
+                return Swal.fire( '', 'The user was created successfully' ,'success' );
             }
             else
             {
@@ -66,7 +66,7 @@ const startRegister = ( userData ) =>
         } 
         catch( error ) 
         {
-            return Swal.fire( '', 'Please contact to the administrtaitor' , 'error' );
+            return Swal.fire( '', 'Please contact the administrator' , 'error' );
         };
 
     };
@@ -103,7 +103,7 @@ const startUpdatePassword = ( _id, newPassword, oldPassword ) =>
         } 
         catch( error ) 
         {
-            return Swal.fire( '', 'Please contact to the administrtaitor' , 'error' );
+            return Swal.fire( '', 'Please contact the administrator' , 'error' );
         };
 
     };
@@ -112,10 +112,10 @@ const startUpdatePassword = ( _id, newPassword, oldPassword ) =>
 
 
 
-const logout = () =>
-( { type : types.clearUser } )
+const logout = () => ( { type : types.clearUser } )
 
 
 //////---------------------------------------------->>>>>
+
 
 export { startLogin, startRegister, startUpdatePassword, logout }

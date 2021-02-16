@@ -7,13 +7,16 @@
 
 .cardGame
 {
-    width: 10rem !important;
+    width: 12rem !important;
 }
 
 
 .card-header
 {
     color : white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -32,17 +35,17 @@
     }
 }
 
-
 .cardImg img
 {
-    border: none;
-    //background-color: black !important;
+    height: 15rem !important;
 }
-
 
 .card-body
 {
     padding: 0.1rem !important;
+    border: none !important;
+    background-color: black !important;
+    color: white !important;
 }
 
 
@@ -51,8 +54,15 @@
     width: auto;
     height: auto;
     padding: 0.1rem;
-    //background-color: black;
-    margin-left: 1rem;
+    margin-right: 0.6rem;
+}
+
+
+.cardRelease
+{
+    background-color: black !important;
+    color: white !important;
+    border: 1px solid black !important;
 }
 
 
@@ -83,21 +93,41 @@
        padding-left: 10px !important;
    }
 
+
    .cardGame
     {
-        width: unset !important;
+        width: 100% !important;
     }
+
 
    .cardImg
     {
         display: block;
+        height: 100% !important;
 
     }
+
 
    .card-body
    {
        display: block !important;
    }
+
+
+    .cardGame
+    {
+        width: 90% !important;
+    }
+
+    .cardImg img
+    {
+        height: unset !important;
+    }
+
+    .img-thumbnail
+    {
+        width: 100%;
+    }
 
 }
 

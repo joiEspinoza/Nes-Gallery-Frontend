@@ -12,19 +12,24 @@ import { startUpdatePassword } from '../../../Actions/authActions';
 //////<<<<<------------------------------------------------``
 
 
-
-
-function ContentAdmin() 
+const ContentAdmin = () => 
 {
 
     const btn1 = document.getElementById( 'btn1' );
     const btn2 = document.getElementById( 'btn2' );
+
+    const btn3 = document.getElementById( 'btn3' );
+    const btn4 = document.getElementById( 'btn4' );
+
+    const btn5 = document.getElementById( 'btn5' );
+    const btn6 = document.getElementById( 'btn6' );
+
     const url1 = document.getElementById( 'url1' );
     const url2 = document.getElementById( 'url2' );
 
 
     const { genders } = useSelector( state => state.gender );
-    const { _id } = useSelector( state => state.auth );
+    const { _id, name } = useSelector( state => state.auth );
 
 
     const initFormValue = 
@@ -32,9 +37,7 @@ function ContentAdmin()
 
         title   : "",
         gender  : "",
-        realese : "",
-        price   : 0,
-        stock   : 0,
+        release : "",
         rate    : 0,
         url     : "",
         url2    : "",
@@ -50,7 +53,7 @@ function ContentAdmin()
 
 
     const [ formValues, handleInputChange, reset ] = useForm( initFormValue );
-    const { title, gender, realese, price, stock, rate } = formValues;
+    const { title, gender, release, rate } = formValues;
 
 
 ////////////////////// GAME SECTION /////////////////////////////////
@@ -76,30 +79,18 @@ function ContentAdmin()
 
         event.preventDefault();
 
-        formValues.title = capitalLetter( formValues.title.trim() );
 
-        formValues.price = parseInt( formValues.price );
-        if( formValues.price <= 9999 )
-        {
-            return Swal.fire( '','Price must be bigger than 9999', 'error' );
-        };
-
-
-        formValues.stock = parseInt( formValues.stock );
-        if( formValues.stock <= 0  )
-        {
-            return Swal.fire( '','Stock must be bigger than 0', 'error' );
-        };
+        formValues.title = capitalLetter( formValues.title.trim() ).replace( /[ & ]/g, '' );
 
 
         formValues.rate = parseInt( formValues.rate );
 
 
-        if( formValues.realese === '' )
+        if( formValues.release === '' )
         {
-            return Swal.fire( '','Realease date is required', 'error' );
+            return Swal.fire( '','A release date is required', 'error' );
         };
-        formValues.realese = dateFormat(formValues.realese);
+        formValues.release = dateFormat( formValues.release );
 
 
         btn1.setAttribute( 'hidden', true );
@@ -129,6 +120,7 @@ function ContentAdmin()
 ///////////////////////////////////////////////////////////////////////
 
 
+
 ////////////////////// GENDER SECTION /////////////////////////////////
 
 
@@ -136,15 +128,40 @@ function ContentAdmin()
     const handleAddGender = ( event ) =>
     {
         event.preventDefault();
-        dispatch( startAddGender( capitalLetter( descr.trim() ) ) );
+
+        if( btn3 && btn4 )
+        {
+            btn3.setAttribute( 'hidden', true );
+            btn4.removeAttribute( 'hidden' );
+        };
+
+        dispatch( startAddGender( capitalLetter( descr.trim() ) ) )
+        .then( () => 
+        {   
+
+            if( btn3 && btn4 )
+            {
+               btn3.removeAttribute( 'hidden' );
+               btn4.setAttribute( 'hidden', true ); 
+            };
+            
+        });
 
     };
 
 
     const handlDeleteGender = ( _id, descr ) =>
-    {
+    {   
+
+        if( name !== 'Admin' )
+        {
+            return Swal.fire( '', "Guest can't perform this action", 'info' )
+        };
+
         Swal.fire(
             {
+                icon : 'question',
+                title: '',
                 text: `Do you want to delete "${ descr }"?`,
                 showCancelButton: true,
                 showDenyButton : false,
@@ -167,29 +184,51 @@ function ContentAdmin()
 ////////////////////////////////////////////////////////////////////////
 
 
+
 ////////////////////// USER SECTION /////////////////////////////////
 
-    const { oldPassword, newPassword, newPassword2 } = formValues;
 
+    const { oldPassword, newPassword, newPassword2 } = formValues;
     const handleUpdatePassword = ( event ) =>
     {
 
         event.preventDefault();
 
+        if( name !== 'Admin' )
+        {
+            return Swal.fire( '', "Guest can't perform this action", 'info' )
+        };
+
 
         if( newPassword !== newPassword2  )
         {
-            return Swal.fire( '', 'Both password have be the same', 'error' );
+            return Swal.fire( '', 'Both passwords have to be the same', 'error' );
         };
-
         
-        dispatch( startUpdatePassword( _id, newPassword, oldPassword ) );
+
+        if( btn5 && btn6)
+        {
+            btn5.setAttribute( 'hidden', true );
+            btn6.removeAttribute( 'hidden' );
+        };
+        
+        
+        dispatch( startUpdatePassword( _id, newPassword, oldPassword ) )
+        .then( () => 
+        { 
+
+            if( btn5 && btn6)
+            {
+                btn5.removeAttribute( 'hidden' );
+                btn6.setAttribute( 'hidden', true );
+            };
+            
+        });
  
     };
 
 
 ////////////////////////////////////////////////////////////////////////
-
 
 
 
@@ -205,7 +244,6 @@ function ContentAdmin()
 
     return (
 
-
         <div className="content__baseAdmin">
 
             <div className="row">
@@ -219,12 +257,12 @@ function ContentAdmin()
                             <form onSubmit={ handleAddGame }>
 
                                 <div className="form-group">
-                                    <label><small className="text-muted">Title</small></label>
+                                    <label><small>Title</small></label>
                                     <input className="form-control" type="text" name="title" value={ title } onChange={ handleInputChange }  />
                                 </div>
 
                                 <div className="form-group">
-                                    <label><small className="text-muted">Gender</small></label>
+                                    <label><small>Gender</small></label>
                                     <select className="form-control" name="gender" value={ gender } onChange={ handleInputChange }>
 
                                         <option></option>
@@ -241,25 +279,13 @@ function ContentAdmin()
 
 
                                 <div className="form-group">
-                                    <label><small className="text-muted">Realese</small></label>
-                                    <input className="form-control" type="date" name="realese" value={ realese } onChange={ handleInputChange }/>
+                                    <label><small>Release</small></label>
+                                    <input className="form-control" type="date" name="release" value={ release } onChange={ handleInputChange }/>
                                 </div>
 
 
                                 <div className="form-group">
-                                    <label><small className="text-muted">Price</small></label>
-                                    <input className="form-control" type="number" name="price" value={ price } onChange={ handleInputChange }/>
-                                </div>
-
-
-                                <div className="form-group">
-                                    <label><small className="text-muted">Stock</small></label>
-                                    <input className="form-control" type="number" name="stock" value={ stock } onChange={ handleInputChange }/>
-                                </div>
-
-
-                                <div className="form-group">
-                                    <label><small className="text-muted">Rate</small></label>
+                                    <label><small>Rate</small></label>
                                     <select className="form-control" name="rate" value={ rate } onChange={ handleInputChange }>
 
                                         <option></option>
@@ -273,13 +299,13 @@ function ContentAdmin()
 
 
                                 <div className="form-group">
-                                    <label><small className="text-muted">Cover</small></label>
+                                    <label><small>Cover</small></label>
                                     <input id="url1" className="form-control" type="file" name="url" onChange={ handleFileChange }/>
                                 </div>
 
 
                                 <div className="form-group">
-                                    <label><small className="text-muted">Screenshot</small></label>
+                                    <label><small>Screenshot</small></label>
                                     <input id="url2" className="form-control" type="file" name="url2" onChange={ handleFileChange2 }/>
                                 </div>
 
@@ -311,13 +337,14 @@ function ContentAdmin()
                                         <form onSubmit={ handleAddGender }>
 
                                             <div className="form-group">
-                                                <label><small className="text-muted">Gender</small></label>
+                                                <label><small>Gender</small></label>
                                                 <input className="form-control" name="descr" value={ descr } onChange={ handleInputChange } />
                                             </div>
 
                                             
                                             <div className="form-group mt-5">
                                                 <button id="btn3" className="base__btnGallery btn-block">Add Gender</button>
+                                                <button id="btn4" hidden disabled className="base__btnGalleryRed btn-block"><i className="fas fa-circle-notch fa-spin"></i></button>
                                             </div>
 
 
@@ -383,22 +410,23 @@ function ContentAdmin()
                                     <form onSubmit={ handleUpdatePassword }>
 
                                         <div className="form-group">
-                                            <label><small className="text-muted"></small>Current password</label>
+                                            <label><small>Current password</small></label>
                                             <input type="password" className="form-control" name="oldPassword" value={ oldPassword } onChange={ handleInputChange } />
                                         </div>
 
                                         <div className="form-group">
-                                            <label><small className="text-muted"></small>New password</label>
+                                            <label><small>New password</small></label>
                                             <input type="password" className="form-control" name="newPassword" value={ newPassword } onChange={ handleInputChange }/>
                                         </div>
 
                                         <div className="form-group">
-                                            <label><small className="text-muted"></small>Confirm new password</label>
+                                            <label><small>Confirm new password</small></label>
                                             <input type="password" className="form-control" name="newPassword2" value={ newPassword2 } onChange={ handleInputChange }/>
                                         </div>
 
                                         <div className="form-group mt-5">
-                                            <button className="base__btnGallery btn-block">Update Password</button>
+                                            <button id="btn5" className="base__btnGallery btn-block">Update Password</button>
+                                            <button id="btn6" hidden disabled className="base__btnGalleryRed btn-block"><i className="fas fa-circle-notch fa-spin"></i></button>
                                         </div>
                                         
                                     </form>

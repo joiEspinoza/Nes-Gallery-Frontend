@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { clearActiveGame, startLoadGames } from "../Actions/gameActions";
+import { startLoadGames } from "../Actions/gameActions";
 import { startLoadGenders } from "../Actions/genderActions";
 import AdminScreen from "../Components/dashboard/AdminScreen";
 import GameScreen from "../Components/dashboard/GameScreen";
