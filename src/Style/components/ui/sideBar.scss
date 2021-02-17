@@ -21,14 +21,23 @@
 }
 
 
+.gender2
+{
+    display: none !important;
+}
+
+
 @media only screen and (max-width: 768px) 
 {
 
-    .sideBar__base
+    .gender1
     {
-        
-        width: 100% !important;
-        padding-right: 2rem !important;
+        display: none !important;
+    }
+
+    .gender2
+    {
+        display: block !important;
     }
 
 }

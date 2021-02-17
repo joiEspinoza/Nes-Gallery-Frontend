@@ -4,7 +4,7 @@ html, body
     overflow-x: hidden;
     width: 100vw;
     height: 100vh;
-
+    background-color: white;
 }
 
 
@@ -24,7 +24,7 @@ h1
 
 .base__hRow
 {
-    height: 12vh !important;
+    height: 13vh !important;
     
 }
 
@@ -38,7 +38,7 @@ h1
 
 .base__fRow
 {
-    height: 27vh;
+    height: 29vh;
     width: 102%;
     position: relative;
     bottom: 0;
@@ -51,6 +51,19 @@ h1
     cursor: pointer;
 
 }
+
+
+.base__dropli
+{
+    margin-top: -0.5rem !important;
+    padding: 1rem !important;
+    padding-bottom: 2.5rem !important;
+    &:hover
+    {
+        background-color:  darken( gray, $amount: 10 ) !important;
+    }
+}
+
 
 .base__paddingLR0
 {

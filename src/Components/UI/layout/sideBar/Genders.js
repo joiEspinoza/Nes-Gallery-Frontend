@@ -51,40 +51,68 @@ const Genders = () =>
 
 
     }, [] )
-    
+
 
 ///////////////////////////************************////////////////////////
 
 
     return (
 
-        <div className="row">
+        <>
 
-            {
-                genders.map( ( gender ) => 
+            <div className="row gender1">
+
                 {
-                    return <div className="col-md-12" key={ gender._id }>
+                    genders.map( ( gender ) => 
+                    {
+                        return <div className="col-md-12" key={ gender._id }>
 
 
-                        <div className="cardGender mt-3 base__pointer">
+                            <div className="cardGender mt-3 base__pointer">
+                            
+                                <ul className="list-group list-group-flush text-center">
+
+                                    <li onClick={ () => { handleFilterByGender( gender.descr ) } } className="animate__animated animate__zoomIn overflow-auto list-group-item base__btnGallery sideBar_btn">{ gender.descr }</li>
                         
-                            <ul className="list-group list-group-flush text-center">
+                                </ul>
 
-                                <li onClick={ () => { handleFilterByGender( gender.descr ) }} className="animate__animated animate__zoomIn overflow-auto list-group-item base__btnGallery sideBar_btn">{ gender.descr }</li>
-                       
-                            </ul>
-
-                        </div>
+                            </div>
 
 
-                    </div> 
+                        </div> 
 
-                    
-                })
-            }
-            
-        </div>
+                        
+                    })
+                }
+                
+            </div>
 
+            <div className="row gender2">
+
+                <div className="col-md-12 p-3 pr-4">
+
+                    <div className="dropdown">
+
+                        <button className="btn btn-secondary dropdown-toggle form-control bg-primary text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Select Gender</button>
+
+                        <ul className="dropdown-menu form-control" aria-labelledby="dropdownMenuButton1">
+
+                            {
+                                genders.map( ( gender ) => 
+                                {
+                                    return <li key={ gender._id } onClick={ () => { handleFilterByGender( gender.descr ) } } className="base__dropli form-control text-center bg-primary text-white">{ gender.descr }</li>
+                                })   
+                            }
+                        
+                        </ul>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+        </>
     );
 
 
